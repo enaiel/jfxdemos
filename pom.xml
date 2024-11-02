@@ -351,6 +351,7 @@
 		<module>controlsfx-demo</module>
 		<module>desktoppanefx-demo</module>
 		<module>formsfx-demo</module>
+		<module>fx-borderlessscene-demo</module>
 		<module>gemsfx-demo</module>
 		<module>ikonli-demo</module>
 		<module>jmetro-demo</module>

@@ -1,0 +1,87 @@
+/*
+ * SPDX-License-Identifier: Apache-2.0
+ *
+ * Copyright (c) 2024 enaiel.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     https://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+dependencies {
+    implementation "org.openjfx:javafx-base:$javafxVersion"
+    implementation "org.openjfx:javafx-graphics:$javafxVersion"
+    implementation "org.openjfx:javafx-controls:$javafxVersion"
+    implementation "org.openjfx:javafx-fxml:$javafxVersion"
+    implementation "org.kordamp.bootstrapfx:bootstrapfx-core:0.4.0"
+    implementation "org.kordamp.desktoppanefx:desktoppanefx-core:0.15.0"
+    implementation "com.miglayout:miglayout-javafx:11.0"
+    implementation "org.kordamp.ikonli:ikonli-core:12.3.1"
+    implementation "org.kordamp.ikonli:ikonli-javafx:12.3.1"
+    implementation "org.kordamp.ikonli:ikonli-antdesignicons-pack:12.3.1"
+    implementation "org.kordamp.ikonli:ikonli-bootstrimplementationcons-pack:12.3.1"
+    implementation "org.kordamp.ikonli:ikonli-boxicons-pack:12.3.1"
+    implementation "org.kordamp.ikonli:ikonli-bpmn-pack:12.3.1"
+    implementation "org.kordamp.ikonli:ikonli-captainicon-pack:12.3.1"
+    implementation "org.kordamp.ikonli:ikonli-carbonicons-pack:12.3.1"
+    implementation "org.kordamp.ikonli:ikonli-codicons-pack:12.3.1"
+    implementation "org.kordamp.ikonli:ikonli-coreui-pack:12.3.1"
+    implementation "org.kordamp.ikonli:ikonli-dashicons-pack:12.3.1"
+    implementation "org.kordamp.ikonli:ikonli-devicons-pack:12.3.1"
+    implementation "org.kordamp.ikonli:ikonli-elusive-pack:12.3.1"
+    implementation "org.kordamp.ikonli:ikonli-entypo-pack:12.3.1"
+    implementation "org.kordamp.ikonli:ikonli-evaicons-pack:12.3.1"
+    implementation "org.kordamp.ikonli:ikonli-feather-pack:12.3.1"
+    implementation "org.kordamp.ikonli:ikonli-fileicons-pack:12.3.1"
+    implementation "org.kordamp.ikonli:ikonli-fluentui-pack:12.3.1"
+    implementation "org.kordamp.ikonli:ikonli-fontawesome-pack:12.3.1"
+    implementation "org.kordamp.ikonli:ikonli-fontawesome5-pack:12.3.1"
+    implementation "org.kordamp.ikonli:ikonli-fontelico-pack:12.3.1"
+    implementation "org.kordamp.ikonli:ikonli-foundation-pack:12.3.1"
+    implementation "org.kordamp.ikonli:ikonli-hawcons-pack:12.3.1"
+    implementation "org.kordamp.ikonli:ikonli-icomoon-pack:12.3.1"
+    implementation "org.kordamp.ikonli:ikonli-ionicons-pack:12.3.1"
+    implementation "org.kordamp.ikonli:ikonli-ionicons4-pack:12.3.1"
+    implementation "org.kordamp.ikonli:ikonli-jamicons-pack:12.3.1"
+    implementation "org.kordamp.ikonli:ikonli-ligaturesymbols-pack:12.3.1"
+    implementation "org.kordamp.ikonli:ikonli-lineawesome-pack:12.3.1"
+    implementation "org.kordamp.ikonli:ikonli-linecons-pack:12.3.1"
+    implementation "org.kordamp.ikonli:ikonli-maki-pack:12.3.1"
+    implementation "org.kordamp.ikonli:ikonli-maki2-pack:12.3.1"
+    implementation "org.kordamp.ikonli:ikonli-mimplementationcons-pack:12.3.1"
+    implementation "org.kordamp.ikonli:ikonli-material-pack:12.3.1"
+    implementation "org.kordamp.ikonli:ikonli-material2-pack:12.3.1"
+    implementation "org.kordamp.ikonli:ikonli-materialdesign-pack:12.3.1"
+    implementation "org.kordamp.ikonli:ikonli-materialdesign2-pack:12.3.1"
+    implementation "org.kordamp.ikonli:ikonli-medicons-pack:12.3.1"
+    implementation "org.kordamp.ikonli:ikonli-metrizeicons-pack:12.3.1"
+    implementation "org.kordamp.ikonli:ikonli-microns-pack:12.3.1"
+    implementation "org.kordamp.ikonli:ikonli-ociicons-pack:12.3.1"
+    implementation "org.kordamp.ikonli:ikonli-octicons-pack:12.3.1"
+    implementation "org.kordamp.ikonli:ikonli-openiconic-pack:12.3.1"
+    implementation "org.kordamp.ikonli:ikonli-paymentfont-pack:12.3.1"
+    implementation "org.kordamp.ikonli:ikonli-prestashopicons-pack:12.3.1"
+    implementation "org.kordamp.ikonli:ikonli-remixicon-pack:12.3.1"
+    implementation "org.kordamp.ikonli:ikonli-runestroicons-pack:12.3.1"
+    implementation "org.kordamp.ikonli:ikonli-simpleicons-pack:12.3.1"
+    implementation "org.kordamp.ikonli:ikonli-simplelineicons-pack:12.3.1"
+    implementation "org.kordamp.ikonli:ikonli-subway-pack:12.3.1"
+    implementation "org.kordamp.ikonli:ikonli-themify-pack:12.3.1"
+    implementation "org.kordamp.ikonli:ikonli-typicons-pack:12.3.1"
+    implementation "org.kordamp.ikonli:ikonli-unicons-pack:12.3.1"
+    implementation "org.kordamp.ikonli:ikonli-weathericons-pack:12.3.1"
+    implementation "org.kordamp.ikonli:ikonli-websymbols-pack:12.3.1"
+    implementation "org.kordamp.ikonli:ikonli-whhg-pack:12.3.1"
+    implementation "org.kordamp.ikonli:ikonli-win10-pack:12.3.1"
+    implementation "org.kordamp.ikonli:ikonli-zondicons-pack:12.3.1"
+}
+
+description = 'ikonli-demo'

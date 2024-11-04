@@ -1,0 +1,37 @@
+/*
+ * SPDX-License-Identifier: Apache-2.0
+ *
+ * Copyright (c) 2024 enaiel.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     https://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+dependencies {
+    implementation "org.openjfx:javafx-base:$javafxVersion"
+    implementation "org.openjfx:javafx-graphics:$javafxVersion"
+    implementation "org.openjfx:javafx-controls:$javafxVersion"
+    implementation "org.openjfx:javafx-fxml:$javafxVersion"
+    implementation "org.openjfx:javafx-swing:$javafxVersion"
+    implementation "org.openjfx:javafx-media:$javafxVersion"
+    implementation ("com.dlsc.workbenchfx:workbenchfx-demo:11.3.1") {
+        exclude group: "tech.units", module: "indriya"
+        exclude group: "org.apache.logging.log4j", module: "log4j-api"
+        exclude group: "org.apache.logging.log4j", module: "log4j-slf4j-impl"
+        exclude group: "com.sun.mail", module: "javax.mail"
+        exclude group: "jakarta.activation", module: "jakarta.activation-api"
+    }
+    implementation "tech.units:indriya:2.0.1"
+    implementation "org.kordamp.ikonli:ikonli-fontawesome-pack:12.3.1"
+}
+
+description = 'workbenchfx-demo'

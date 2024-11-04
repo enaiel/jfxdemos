@@ -1,0 +1,132 @@
+/*
+ * SPDX-License-Identifier: Apache-2.0
+ *
+ * Copyright (c) 2024 enaiel.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     https://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+import org.javamodularity.moduleplugin.tasks.ModularJavaExec
+
+plugins {
+    id 'org.openjfx.javafxplugin' version '0.1.0' apply false
+    id 'com.github.johnrengelman.shadow' version '7.1.2' apply false
+    id 'org.beryx.jlink' version '2.26.0' apply false
+    id 'org.graalvm.buildtools.native' version '0.10.3' apply false
+    id 'org.javamodularity.moduleplugin' version '1.8.15' apply false
+}
+
+allprojects {
+
+    group 'com.micronarts.jfxdemos'
+    version '1.0.0-SNAPSHOT'
+
+    repositories {
+        mavenCentral()
+        gradlePluginPortal()
+    }
+
+    ext {
+        mainModuleName = 'com.micronarts.jfxdemos'
+        mainClassName = 'com.micronarts.jfxdemos.DemoLauncher'
+        junitVersion = '4.13.2'
+        testfxVersion = '4.0.18'
+        javaVersion = '11'
+        javafxVersion = '17.0.0.1'
+        graalvmVersion = '22'
+    }
+}
+
+subprojects {
+
+    apply plugin: 'java'
+    apply plugin: 'application'
+    apply plugin: 'org.openjfx.javafxplugin'
+    apply plugin: 'com.github.johnrengelman.shadow'
+    apply plugin: 'org.beryx.jlink'
+    apply plugin: 'org.graalvm.buildtools.native'
+    apply plugin: 'org.javamodularity.moduleplugin'
+
+    java {
+        java.modularity.inferModulePath = true
+        withSourcesJar()
+        withJavadocJar()
+    }
+
+    application {
+        mainModule = mainModuleName
+        mainClass = mainClassName
+        mainClassName = mainClassName
+    }
+
+    javafx {
+        version = javafxVersion
+    }
+
+    jlink {
+        options = ['--strip-debug', '--compress', '2', '--no-header-files', '--no-man-pages']
+        launcher{
+            name = project.name
+        }
+        addExtraDependencies("javafx")
+    }
+
+    graalvmNative {
+        agent {
+            enabled = false
+        }
+        binaries {
+            main {
+                imageName = project.name
+                mainClass = mainClassName
+                fallback = false
+                requiredVersion = graalvmVersion
+                buildArgs.add("-Ob")
+                buildArgs.add("-H:+AllowJRTFileSystem")
+                buildArgs.add("--enable-url-protocols=http,https")
+				buildArgs.add("-Djava.awt.headless=false")
+                buildArgs.add("-H:ConfigurationFileDirectories=$buildDir/native/agent-output/runAgent")
+            }
+        }
+        metadataRepository {
+            enabled = true
+        }
+    }
+
+    task runFatJar(type: JavaExec) {
+        classpath = files(shadowJar.archiveFile)
+        main = mainClassName
+    }
+
+    task runJPMS(type: ModularJavaExec) {
+        mainModule = mainModuleName
+        mainClass = mainClassName
+    }
+
+    task runAgent(type: JavaExec) {
+        classpath = sourceSets.main.runtimeClasspath
+        main = mainClassName
+    }
+
+    tasks.withType(JavaExec).configureEach {
+        outputs.upToDateWhen { false }
+    }
+
+    task runJlink(type: Exec) {
+        commandLine  "$buildDir/image/bin/$project.name"
+    }
+
+    task runNative(type: Exec) {
+        commandLine  "$buildDir/native/nativeCompile/$project.name"
+    }
+}

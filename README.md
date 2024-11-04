@@ -36,9 +36,11 @@ or as a non-modular native application using GraalVM Native Image.
 ##  Prerequisites
 ### Java Compiler
   * [OpenJDK 11+](https://jdk.java.net/archive/)
-  * [GraalVM for Java 11+](https://github.com/graalvm/graalvm-ce-builds/releases)
-### Build Tool 
+  * [GraalVM for Java 11+ version 22+](https://github.com/graalvm/graalvm-ce-builds/releases)
+    (Need set your GRAALVM_HOME and add the Graalvm 'lib' folder to your LD_LIBRARY_PATH) 
+### Build Tools 
   * [Maven 3.5.0+](https://maven.apache.org/download.cgi)
+  * [Gradle 6.0.0+](https://gradle.org/install/)
 ### Compiler Toolchain
   * Linux GCC Toolchain
 ~~~
@@ -70,6 +72,8 @@ mvn -pl <demo name> -Popenjfx javafx:jlink
 ```
 ### Run Demo as JLink JavaFX Runtime
 ```
+mvn -pl <demo name> -Popenjfx exec:exec@run-jlink
+OR
 <demo name>/target/<demo name>/bin/<demo name>
 OR
 <demo name>/target/<demo name>/bin/java -m com.micronarts.jfxdemos/com.micronarts.jfxdemos.DemoLauncher
@@ -92,7 +96,7 @@ mvn -pl <demo name> -Pfatjar clean compile package
 ```
 mvn -pl <demo name> -Pfatjar exec:exec@run-fatjar
 OR
-java -jar <demo name>/target/<demo name>-1.0.0-SNAPSHOT-jar-with-dependencies.jar
+java -jar <demo name>/target/<demo name>-1.0.0-SNAPSHOT-jar-all.jar
 ```
 ### Run Demo with Native Tracing Agent
 ```
@@ -107,4 +111,59 @@ mvn -pl <demo name> -Pnative -Dagent=true package
 mvn -pl <demo name> -Pnative exec:exec@run-native
 OR
 <demo name>/target/<demo name>
+```
+
+## Using Gradle
+
+### Build Demo as Modular JavaFX Application
+```
+./gradlew <demo name>:clean <demo name>:compileJava <demo name>:build 
+```
+### Run Demo as Modular JavaFX Application
+```
+./gradlew <demo name>:run
+```
+### Build Demo as JLink JavaFX Runtime
+```
+./gradlew <demo name>:jlink
+```
+### Run Demo as JLink JavaFX Runtime
+```
+./gradlew <demo name>:runJlink
+OR
+<demo name>/build/image/bin/<demo name>
+OR
+<demo name>/build/image/bin/java -m com.micronarts.jfxdemos/com.micronarts.jfxdemos.DemoLauncher
+```
+### Build Demo as Modular Application
+```
+./gradlew <demo name>:build 
+```
+### Run Demo as Modular Application
+```
+./gradlew <demo name>:runJPMS
+```
+### Build Demo as Executable Fat Jar
+```
+./gradlew <demo name>:shadowJar 
+```
+### Run Demo as Executable Fat Jar
+```
+./gradlew <demo name>:runFatJar
+OR
+java -jar <demo name>/build/libs/<demo name>-1.0.0-SNAPSHOT-all.jar
+```
+### Run Demo with Native Tracing Agent
+```
+./gradlew <demo name>:runAgent -Pagent
+```
+### Build Demo as Native Application
+```
+./gradlew <demo name>:nativeCompile -Pagent
+```
+### Run Demo as Native Application
+```
+./gradlew <demo name>:runNative
+OR
+<demo name>/build/native/nativeCompile/<demo name>
 ```

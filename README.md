@@ -60,19 +60,19 @@ xcode-select --install
 
 ### Build Demo as Modular JavaFX Application
 ```
-mvn -pl <demo name> -Popenjfx clean compile package
+./mvnw -pl <demo name> -Popenjfx clean compile package
 ```
 ### Run Demo as Modular JavaFX Application
 ```
-mvn -pl <demo name> -Popenjfx javafx:run
+./mvnw -pl <demo name> -Popenjfx javafx:run
 ```
 ### Build Demo as JLink JavaFX Runtime
 ```
-mvn -pl <demo name> -Popenjfx javafx:jlink
+./mvnw -pl <demo name> -Popenjfx javafx:jlink
 ```
 ### Run Demo as JLink JavaFX Runtime
 ```
-mvn -pl <demo name> -Popenjfx exec:exec@run-jlink
+./mvnw -pl <demo name> -Popenjfx exec:exec@run-jlink
 OR
 <demo name>/target/<demo name>/bin/<demo name>
 OR
@@ -80,35 +80,35 @@ OR
 ```
 ### Build Demo as Modular Application
 ```
-mvn -pl <demo name> -Pjpms clean compile package
+./mvnw -pl <demo name> -Pjpms clean compile package
 ```
 ### Run Demo as Modular Application
 ```
-mvn -pl <demo name> -Pjpms exec:exec@run-jpms
+./mvnw -pl <demo name> -Pjpms exec:exec@run-jpms
 OR
 java @<demo name>/target/modulepath -m com.micronarts.jfxdemos/com.micronarts.jfxdemos.DemoLauncher
 ```
 ### Build Demo as Executable Fat Jar
 ```
-mvn -pl <demo name> -Pfatjar clean compile package
+./mvnw -pl <demo name> -Pfatjar clean compile package
 ```
 ### Run Demo as Executable Fat Jar
 ```
-mvn -pl <demo name> -Pfatjar exec:exec@run-fatjar
+./mvnw -pl <demo name> -Pfatjar exec:exec@run-fatjar
 OR
-java -jar <demo name>/target/<demo name>-1.0.0-SNAPSHOT-jar-all.jar
+java -jar <demo name>/target/<demo name>-1.0.0-SNAPSHOT-all.jar
 ```
 ### Run Demo with Native Tracing Agent
 ```
-mvn -pl <demo name> -Pnative -Dagent=true clean compile exec:exec@java-agent
+./mvnw -pl <demo name> -Pnative -Dagent=true clean compile exec:exec@java-agent
 ```
 ### Build Demo as Native Application
 ```
-mvn -pl <demo name> -Pnative -Dagent=true package
+./mvnw -pl <demo name> -Pnative -Dagent=true package
 ```
 ### Run Demo as Native Application
 ```
-mvn -pl <demo name> -Pnative exec:exec@run-native
+./mvnw -pl <demo name> -Pnative exec:exec@run-native
 OR
 <demo name>/target/<demo name>
 ```

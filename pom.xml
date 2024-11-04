@@ -156,7 +156,7 @@
 							<noHeaderFiles>true</noHeaderFiles>
 							<noManPages>true</noManPages>
 							<launcher>${project.artifactId}</launcher>
-							<jlinkImageName>${project.artifactId}</jlinkImageName>
+							<!--jlinkImageName>${project.artifactId}</jlinkImageName-->
 							<!--jlinkZipName>${project.artifactId}</jlinkZipName-->
 							<mainClass>${mainModuleName}/${mainClassName}</mainClass>
 						</configuration>
@@ -172,7 +172,7 @@
 									<goal>exec</goal>
 								</goals>
 								<configuration>
-									<executable>${project.build.directory}/${project.artifactId}/bin/${project.artifactId}</executable>
+									<executable>${project.build.directory}/image/bin/${project.artifactId}</executable>
 									<workingDirectory>${project.build.directory}</workingDirectory>
 								</configuration>
 							</execution>
@@ -228,7 +228,7 @@
 								<configuration>
 									<createDependencyReducedPom>false</createDependencyReducedPom>
 									<shadedArtifactAttached>true</shadedArtifactAttached>
-									<shadedClassifierName>jar-with-dependencies</shadedClassifierName>
+									<shadedClassifierName>all</shadedClassifierName>
 									<transformers>
 										<transformer implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
 											<mainClass>${mainClassName}</mainClass>
@@ -261,7 +261,7 @@
 									<workingDirectory>${project.build.directory}</workingDirectory>
 									<arguments>
 										<argument>-jar</argument>
-										<argument>${project.build.directory}/${project.artifactId}-${project.version}-jar-with-dependencies.jar</argument>
+										<argument>${project.build.directory}/${project.artifactId}-${project.version}-all.jar</argument>
 									</arguments>
 								</configuration>
 							</execution>
@@ -289,10 +289,9 @@
 							</execution>
 						</executions>
 						<configuration>
-							<imageName>${imageName}</imageName>
+							<imageName>${project.artifactId}</imageName>
 							<mainClass>${mainClassName}</mainClass>
 							<buildArgs>
-								<!-- Quick build mode -->
 								<buildArg>-Ob</buildArg>
 								<buildArg>-H:+AllowJRTFileSystem</buildArg>
 								<buildArg>--enable-url-protocols=http,https</buildArg>

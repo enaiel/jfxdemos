@@ -74,9 +74,9 @@ xcode-select --install
 ```
 ./mvnw -pl <demo name> -Popenjfx exec:exec@run-jlink
 OR
-<demo name>/target/<demo name>/bin/<demo name>
+<demo name>/target/image/bin/<demo name>
 OR
-<demo name>/target/<demo name>/bin/java -m com.micronarts.jfxdemos/com.micronarts.jfxdemos.DemoLauncher
+<demo name>/target/image/bin/java -m com.micronarts.jfxdemos/com.micronarts.jfxdemos.DemoLauncher
 ```
 ### Build Demo as Modular Application
 ```

@@ -58,6 +58,8 @@ subprojects {
     apply plugin: 'org.javamodularity.moduleplugin'
 
     java {
+        sourceCompatibility = javaVersion
+        targetCompatibility = javaVersion
         java.modularity.inferModulePath = true
         withSourcesJar()
         withJavadocJar()

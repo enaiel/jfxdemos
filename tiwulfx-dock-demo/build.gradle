@@ -16,11 +16,6 @@
  * limitations under the License.
  */
 
-
-plugins {
-    id "com.micronarts.jfxdemos.java-conventions"
-}
-
 dependencies {
     implementation "org.openjfx:javafx-base:$javafxVersion"
     implementation "org.openjfx:javafx-graphics:$javafxVersion"

@@ -28,7 +28,7 @@ plugins {
 
 allprojects {
 
-    group 'com.micronarts.jfxdemos'
+    group 'com.micronarts'
     version '1.0.0-SNAPSHOT'
 
     repositories {
